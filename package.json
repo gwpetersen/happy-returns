@@ -2,12 +2,19 @@
   "name": "happy-returns",
   "version": "1.0.0",
   "description": "happy returns code exercise",
-  "main": "index.js",
   "repository": "https://github.com/gwpetersen/happy-returns.git",
   "author": "gwpetersen <garettpetersencpp@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test:selenium": "mocha 'specs/search.spec.js' --timeout 20000",
+    "test:rest": "mocha 'specs/rest.js' --timeout 20000"
+  },
   "dependencies": {
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "chromedriver": "^84.0.0",
+    "geckodriver": "^1.19.1",
     "mocha": "^8.0.1",
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
