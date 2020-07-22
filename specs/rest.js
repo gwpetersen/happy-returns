@@ -18,6 +18,20 @@ describe('Happy Returns api REST test', async () => {
         expect(data.variants, 'there should be at least one product variant').to.have.lengthOf.at.least(1);
     });
 
+    it('POST order with empty array', async () => {
+        const getVariants = await axios.get(`${baseUrl}/getProductVariants`);
+        expect(getVariants.status, 'api response should be 200').to.equal(200)
+        expect(getVariants.data.variants, 'variants should be an array').to.be.an('array');
+        expect(getVariants.data.variants, 'there should be at least one product variant').to.have.lengthOf.at.least(1);
+        const { status, data } = await axios.post(`${baseUrl}/order`, {
+            data: {}
+        });
+        // api seemed to go down so I could not add test cases like this
+      
+        // expect(status, 'api response should be 201').to.equal(201)
+        // expect(data.text, 'should recieve a good job response').to.equal('Good job!')
+    });
+
     it('POST /order', async () => {
         const getVariants = await axios.get(`${baseUrl}/getProductVariants`);
         expect(getVariants.status, 'api response should be 200').to.equal(200)
