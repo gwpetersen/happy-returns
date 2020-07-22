@@ -18,7 +18,7 @@ describe('Happy Returns api REST test', async () => {
         expect(data.variants, 'there should be at least one product variant').to.have.lengthOf.at.least(1);
     });
 
-    it('POST order with empty array', async () => {
+    it('POST /order with empty object', async () => {
         const getVariants = await axios.get(`${baseUrl}/getProductVariants`);
         expect(getVariants.status, 'api response should be 200').to.equal(200)
         expect(getVariants.data.variants, 'variants should be an array').to.be.an('array');
